@@ -62,21 +62,22 @@
                                             <td></td>
                                             <td>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1" required>&nbsp;&nbsp;Sangat Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="4" required>&nbsp;&nbsp;Sangat Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="3">&nbsp;&nbsp;Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="3">&nbsp;&nbsp;Tidak Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Kurang Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="4">&nbsp;&nbsp;Sangat Tidak Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1">&nbsp;&nbsp;Tidak Puas <br>
                                                 </label>
                                             </td>
+                                        </tr>
                                         </tr>
                                     @endforeach
                                         <tr style="margin-top:20px !important">
