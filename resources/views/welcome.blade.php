@@ -70,11 +70,11 @@
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Tidak Puas <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Kurang Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1">&nbsp;&nbsp;Sangat Tidak Puas <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1">&nbsp;&nbsp;Tidak Puas <br>
                                                 </label>
                                             </td>
                                         </tr>

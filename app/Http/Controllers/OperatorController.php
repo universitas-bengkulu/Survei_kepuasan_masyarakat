@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class OperatorController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('web');
-    // }
+    public function __construct()
+    {
+        $this->middleware('web');
+    }
 
     public function dashboard(){
         $evaluasi = EvaluasiRekap::all()->count();
