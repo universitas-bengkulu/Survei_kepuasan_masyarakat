@@ -59,7 +59,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"><i class="fa fa-book"></i>&nbsp;Manajemen Data Capaian Lulusan Mata Kuliah</h3>
+                <h3 class="box-title"><i class="fa fa-book"></i>&nbsp;Manajemen Data Indikator</h3>
             </div>
             <div class="box-body">
                 <div class="row">

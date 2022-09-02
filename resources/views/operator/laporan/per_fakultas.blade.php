@@ -112,7 +112,7 @@
                         <tr>
                             <th>No</th>
                             <th>Fakultas</th>
-                            <th>Jumlah Mengevaluasi</th>
+                            <th>Jumlah Responden</th>
                             <th>Rata-Rata</th>
                         </tr>
                     </thead>

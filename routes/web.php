@@ -43,6 +43,7 @@ Route::group(['prefix'  => 'operator/'],function(){
         Route::get('/per_prodi',[LaporanController::class, 'perProdi'])->name('operator.laporan.per_prodi');
         Route::get('/per_fakultas',[LaporanController::class, 'perFakultas'])->name('operator.laporan.per_fakultas');
         Route::get('/keseluruhan',[LaporanController::class, 'keseluruhan'])->name('operator.laporan.keseluruhan');
+        Route::get('/pesan_dan_saran',[LaporanController::class, 'saran'])->name('operator.laporan.saran');
     });
 
 });
