@@ -40,7 +40,7 @@
                     <input type="hidden" name="fakultas" value="{{ Session::get('fakultas') }}">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-striped table-bordered " id="table" style="width:100%;">
+                            <table class="table table-striped table-bordered table-hover " id="table" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th style="text-align:center; width:10% !important;">Nomor</th>
@@ -62,19 +62,19 @@
                                             <td></td>
                                             <td>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="4" required>&nbsp;&nbsp;Sangat Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="4" required>&nbsp;&nbsp;Sangat Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="3">&nbsp;&nbsp;Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="3">&nbsp;&nbsp;Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Tidak Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="2">&nbsp;&nbsp;Tidak Puas <br>
                                                 </label>
                                                 <br>
                                                 <label for="" class="radio-inline">
-                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1">&nbsp;&nbsp;Sangat Tidak Setuju <br>
+                                                    <input type="radio" class="flat-red" name="nilai{{ $item->id }}" value="1">&nbsp;&nbsp;Sangat Tidak Puas <br>
                                                 </label>
                                             </td>
                                         </tr>

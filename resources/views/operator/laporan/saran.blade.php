@@ -58,7 +58,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Detail Laporan Keseluruhan</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Pesan & Saran</h3>
             </div>
             <div class="box-body">
                 <table class="table table-hover table-striped" id="table">
@@ -69,8 +69,7 @@
                             <th>Program Studi</th>
                             <th>Nama Lengkap</th>
                             <th>Akses</th>
-                            <th>Total Skor</th>
-                            <th>Rata-Rata</th>
+                            <th>Pesan / Saran</th>
                             <th>Waktu</th>
                         </tr>
                     </thead>
@@ -78,16 +77,15 @@
                         @php
                             $no=1;
                         @endphp
-                        @forelse ($jumlah as $jumlah)
+                        @forelse ($sarans as $saran)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $jumlah->fakultas }}</td>
-                                <td>{{ $jumlah->prodi }}</td>
-                                <td>{{ $jumlah->nama_lengkap }}</td>
-                                <td>{{ $jumlah->akses }}</td>
-                                <td>{{ $jumlah->total_skor }}</td>
-                                <td>{{ $jumlah->rata_rata }}</td>
-                                <td>{{ Carbon\Carbon::parse($jumlah->created_at)->isoFormat('D MMMM Y') }}</td>
+                                <td>{{ $saran->fakultas }}</td>
+                                <td>{{ $saran->prodi }}</td>
+                                <td>{{ $saran->nama_lengkap }}</td>
+                                <td>{{ $saran->akses }}</td>
+                                <td>{{ $saran->saran }}</td>
+                                <td>{{ Carbon\Carbon::parse($saran->created_at)->isoFormat('D MMMM Y') }}</td>
                             </tr>
                         @empty
 

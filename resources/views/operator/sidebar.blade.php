@@ -26,7 +26,13 @@
 
 <li class="{{ set_active('operator.laporan.keseluruhan') }}">
     <a href="{{ route('operator.laporan.keseluruhan') }}">
-        <i class="fa fa-line-chart"></i> <span>Laporan Keseluruhan</span>
+        <i class="fa fa-line-chart"></i> <span>Laporan Per Responden</span>
+    </a>
+</li>
+
+<li class="{{ set_active('operator.laporan.saran') }}">
+    <a href="{{ route('operator.laporan.saran') }}">
+        <i class="fa fa-comments-o"></i> <span>Pesan / Saran</span>
     </a>
 </li>
 

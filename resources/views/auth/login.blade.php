@@ -29,7 +29,7 @@
 
                     <button type="submit" name="submit" style="margin-bottom:10px;r"><i class="fa fa-sign-in"></i>&nbsp; Login</button>
 
-                    <a href="#" style="font-weight:200; font-style:italic;">Versi 2.0</a>
+                    <a href="#" style="font-weight:200; font-style:italic;">Versi 1.0</a>
                 </form>
             </div>
         </div>
