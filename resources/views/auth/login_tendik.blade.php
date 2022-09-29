@@ -17,19 +17,19 @@
                         <strong>Perhatian:</strong> <i>{{ $message }}</i>
                     </div>
                     @else
-                    <h6>Login Mahasiswa & Dosen</h6>
+                    <h6>Login Tenaga Kependidikan</h6>
                     <p style="text-align:center; margin-bottom:20px;">Evaluasi Lembaga Pengembangan Teknologi Informasi dan Komunikasi</p>
                 @endif
-                <form method="post" action="{{ route('panda.login') }}">
+                <form method="post" action="{{ route('login') }}">
                     @csrf
-                    <p>NPM / NIP</p>
+                    <p>Nomor Induk Pegawai</p>
                     <input type="text" name="username" placeholder="masukan username">
-                    <p>Password Portal Akademik</p>
+                    <p>Password</p>
                     <input type="password" name="password" placeholder="••••••">
 
                     <button type="submit" name="submit" style="margin-bottom:10px;r"><i class="fa fa-sign-in"></i>&nbsp; Login</button>
 
-                    <a href="{{ route('tendik.login') }}" style="font-weight:200; "><i class="fa fa-arrow-right"></i>&nbsp;Login Sebagai Tendik</a>
+                    <a href="#" style="font-weight:200; font-style:italic;">Versi 2.0</a>
                 </form>
             </div>
         </div>

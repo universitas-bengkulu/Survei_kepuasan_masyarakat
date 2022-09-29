@@ -23,11 +23,21 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                $notification2 = array(
-                    'message' => 'Berhasil, anda login sebagai operator!',
-                    'alert-type' => 'success'
-                );
-                return redirect()->route('operator.dashboard')->with($notification2);;
+                if (auth()->user()->akses == "administrator") {
+                    $notification1 = array(
+                        'message' => 'Berhasil, anda login sebagai operator!',
+                        'alert-type' => 'success'
+                    );
+                    return redirect()->route('operator.dashboard')->with($notification1);;
+                }elseif (auth()->user()->akses == "tendik") {
+                    $notification2 = array(
+                        'message' => 'Berhasil, anda login sebagai tenaga kependiidkan!',
+                        'alert-type' => 'success'
+                    );
+                    return redirect()->route('tendik.dashboard')->with($notification2);
+                } else {
+                        return redirect()->route('login')->with('error','Password salah atau akun sudah tidak aktif');
+                }
             }
         }
         return $next($request);

@@ -6,6 +6,7 @@ use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\PandaController;
+use App\Http\Controllers\TendikController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -57,4 +58,13 @@ Route::get('/logout', [PandaController::class, 'authLogout'])->name('authLogout'
 Route::group(['prefix'  => 'evaluasi/'],function(){
     Route::get('/',[HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
     Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
+});
+
+Route::group(['prefix'  => 'tenaga_kependidikan/'],function(){
+    Route::get('/login', function () {
+        return view('auth/login_tendik');
+    })->name('tendik.login');
+
+    Route::get('/dashboard',[TendikController::class, 'dashboard'])->name('tendik.dashboard');
+    Route::post('/',[TendikController::class, 'post'])->name('tendik.post');
 });
