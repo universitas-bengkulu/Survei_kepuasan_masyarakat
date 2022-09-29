@@ -15,6 +15,7 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('unit');
+            $table->string('akses')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('unit');
+            $table->string('akses')->nullable();
         });
     }
 }

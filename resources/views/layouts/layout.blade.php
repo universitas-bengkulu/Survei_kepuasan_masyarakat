@@ -79,9 +79,13 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1 style="text-transform:capitalize !important;">
-          Hallo <a>
-                    @if(Session::get('login') && Session::get('login',true))
-                        {{ Session::get('nama_lengkap') }}
+          Selamat Datang <a>
+                    @if (Auth::check())
+                        {{ Auth::user()->nm_lengkap }}
+                    @else
+                        @if(Session::get('login') && Session::get('login',true))
+                            {{ Session::get('nama_lengkap') }}
+                        @endif
                     @endif
                 </a>
           <small>Evaluasi Lembaga Pengembangan Teknologi Informasi dan Komunikasi (LPTIK)</small>
