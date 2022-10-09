@@ -9,7 +9,7 @@
     @endif
 @endsection
 @section('halaman')
-    Halaman Operator
+    Halaman Perencanaan
 @endsection
 @section('content-title')
     Dashboard
@@ -20,7 +20,7 @@
     <li class="active">Dashboard</li>
 @endsection
 @section('sidebar-menu')
-    @include('operator/sidebar')
+    @include('perencanaan/sidebar')
 @endsection
 @section('user')
     <!-- User Account Menu -->
@@ -44,8 +44,8 @@
 @endsection
 @push('styles')
     <style>
-        #chartdiv {
-            width: 90%;
+        #chartdiv, #chartdiv2 {
+            width: 100%;
             height: 500px;
         }
     </style>
@@ -128,6 +128,182 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-6 sm-6">
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Fakultas (Grafik Batang)</h3>
+            </div>
+            <div class="box-body">
+                @section('charts')
+                    var data = [
+                        @foreach ($jumlah as $data)
+                            {
+                                "country": "{{ $data['fakultas'] }}",
+                                "value": {{ $data['jumlah'] }}
+                            },
+                        @endforeach
+                    ];
+                @endsection
+                <div id="chartdiv"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+
+    <div class="col-md-6 sm-6">
+        <div class="box box-primary">
+
+            <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Fakultas (Grafik Lingkaran)</h3>
+            </div>
+            <div class="box-body">
+                @section('charts2')
+                    chart.data = [
+                        @foreach ($jumlah as $data)
+                            {
+                                "country": "{{ $data['fakultas'] }}",
+                                "litres": {{ $data['jumlah'] }}
+                            },
+                        @endforeach
+                    ];
+                @endsection
+                <div id="chartdiv2"></div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+
 @endsection
 
+@push('scripts')
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
+    <!-- Chart code -->
+    <script>
+        am5.ready(function() {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+        am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+        panX: true,
+        panY: true,
+        wheelX: "panX",
+        wheelY: "zoomX",
+        pinchZoomX:true
+        }));
+
+        // Add cursor
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+        cursor.lineY.set("visible", false);
+
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+        xRenderer.labels.template.setAll({
+        rotation: -90,
+        centerY: am5.p50,
+        centerX: am5.p100,
+        paddingRight: 15
+        });
+
+        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+        maxDeviation: 0.3,
+        categoryField: "country",
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {})
+        }));
+
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+        maxDeviation: 0.3,
+        renderer: am5xy.AxisRendererY.new(root, {})
+        }));
+
+
+        // Create series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+        name: "Series 1",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        sequencedInterpolation: true,
+        categoryXField: "country",
+        tooltip: am5.Tooltip.new(root, {
+            labelText:"{valueY}"
+        })
+        }));
+
+        series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 });
+        series.columns.template.adapters.add("fill", function(fill, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+
+        series.columns.template.adapters.add("stroke", function(stroke, target) {
+        return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+
+
+        // Set data
+        @yield('charts')
+        xAxis.data.setAll(data);
+        series.data.setAll(data);
+
+
+        // Make stuff animate on load
+        // https://www.amcharts.com/docs/v5/concepts/animations/
+        series.appear(1000);
+        chart.appear(1000, 100);
+
+        }); // end am5.ready()
+    </script>
+
+
+<!-- Resources -->
+<script src="{{ asset('assets/offline/core.js') }}"></script>
+<script src="{{ asset('assets/offline/chart.js') }}"></script>
+<script src="{{ asset('assets/offline/animated.js') }}"></script>
+
+<!-- Chart code -->
+<script>
+    am4core.ready(function() {
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    // Create chart instance
+    var chart = am4core.create("chartdiv2", am4charts.PieChart);
+    // Add data
+    @yield('charts2')
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "litres";
+    pieSeries.dataFields.category = "country";
+    pieSeries.slices.template.stroke = am4core.color("#fff");
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+    // This creates initial animation
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+    }); // end am4core.ready()
+</script>
+@endpush
