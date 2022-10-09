@@ -69,6 +69,12 @@ class LoginController extends Controller
                     'alert-type' => 'success'
                 );
                 return redirect()->route('tendik.dashboard')->with($notification2);
+            }elseif (auth()->user()->akses == "perencanaan") {
+                $notification2 = array(
+                    'message' => 'Berhasil, anda login sebagai perencanaan!',
+                    'alert-type' => 'success'
+                );
+                return redirect()->route('perencanaan.dashboard')->with($notification2);
             }
            } else {
                 return redirect()->route('login')->with('error','Password salah atau akun sudah tidak aktif');

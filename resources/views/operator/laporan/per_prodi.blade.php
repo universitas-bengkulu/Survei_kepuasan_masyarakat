@@ -13,7 +13,7 @@
 @endsection
 @section('content-title')
     Dashboard
-    <small>E-Learning Universitas Bengkulu</small>
+    <small>Sistem Informasi Survey Kepuasan</small>
 @endsection
 @section('page')
     <li><a href="#"><i class="fa fa-home"></i> Evaluasi LPTIK</a></li>

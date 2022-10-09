@@ -6,6 +6,7 @@ use App\Http\Controllers\IndikatorController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\PandaController;
+use App\Http\Controllers\PerencanaanController;
 use App\Http\Controllers\TendikController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,4 +68,13 @@ Route::group(['prefix'  => 'tenaga_kependidikan/'],function(){
 
     Route::get('/dashboard',[TendikController::class, 'dashboard'])->name('tendik.dashboard');
     Route::post('/',[TendikController::class, 'post'])->name('tendik.post');
+});
+
+
+Route::group(['prefix'  => 'perencanaan/'],function(){
+    Route::get('/login', function () {
+        return view('auth/login_perencanaan');
+    })->name('perencanaan.login');
+
+    Route::get('/dashboard',[PerencanaanController::class, 'dashboard'])->name('perencanaan.dashboard');
 });
