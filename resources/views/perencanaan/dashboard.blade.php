@@ -84,41 +84,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-xs-12" style="padding-bottom:10px !important;">
-                    <!-- small box -->
-                    <div class="small-box bg-blue" style="margin-bottom:0px;">
-                        <div class="inner">
-                        <h3>{{ $today }}</h3>
 
-                        <p>Evaluasi Hari Ini</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fa fa-check-circle"></i>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-3 col-xs-12" style="padding-bottom:10px !important;">
                     <!-- small box -->
                     <div class="small-box bg-yellow" style="margin-bottom:0px;">
                         <div class="inner">
                         <h3>{{ number_format($rata_rata->skor,2) }}</h3>
 
-                        <p>Rata-Rata Keseluruhan</p>
+                        <p>Rata-Rata</p>
                         </div>
                         <div class="icon">
                         <i class="fa fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-xs-12" style="padding-bottom:10px !important;">
-                    <!-- small box -->
-                    <div class="small-box bg-green" style="margin-bottom:0px;">
-                        <div class="inner">
-                        <h3>{{ number_format($rata_rata_today->skor,2) }}</h3>
-                        <p>Rata-Rata Hari Ini</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fa fa-book"></i>
                         </div>
                     </div>
                 </div>
