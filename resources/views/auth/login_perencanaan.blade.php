@@ -17,12 +17,12 @@
                         <strong>Perhatian:</strong> <i>{{ $message }}</i>
                     </div>
                     @else
-                    <h6>Username</h6>
+                    <h6>Login Perencanaan</h6>
                     <p style="text-align:center; margin-bottom:20px;">Evaluasi Lembaga Pengembangan Teknologi Informasi dan Komunikasi</p>
                 @endif
                 <form method="post" action="{{ route('login') }}">
                     @csrf
-                    <p>Nomor Induk Pegawai</p>
+                    <p>Username</p>
                     <input type="text" name="username" placeholder="masukan username">
                     <p>Password</p>
                     <input type="password" name="password" placeholder="••••••">
