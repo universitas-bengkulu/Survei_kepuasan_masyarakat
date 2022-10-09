@@ -64,47 +64,6 @@
     </p>
 </div>
 <div class="row">
-    <div class="col-md-12 sm-6">
-        <div class="box box-primary">
-
-            <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Informasi Evaluasi</h3>
-            </div>
-            <div class="box-body">
-                <div class="col-lg-3 col-xs-12" style="padding-bottom:10px !important;">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua" style="margin-bottom:0px;">
-                        <div class="inner">
-                        <h3>{{ $evaluasi }}</h3>
-
-                        <p>Jumlah Evaluasi</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fa fa-users"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-xs-12" style="padding-bottom:10px !important;">
-                    <!-- small box -->
-                    <div class="small-box bg-yellow" style="margin-bottom:0px;">
-                        <div class="inner">
-                        <h3>{{ number_format($rata_rata->skor,2) }}</h3>
-
-                        <p>Rata-Rata</p>
-                        </div>
-                        <div class="icon">
-                        <i class="fa fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.box-body -->
-        </div>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-6 sm-6">
         <div class="box box-primary">
 
