@@ -5,7 +5,8 @@
 @section('content')
 <div class="box box-info">
     <div class="box-header with-border">
-      <h3 class="box-title">Form Evaluasi Universitas Bengkulu</h3>
+      <h3 class="box-title">
+        Survei ini dilakukan untuk melihat kepuasan masyarakat terhadap pelayanan informasi publik Universitas Bengkulu (UNIB). Pilihlah salah satu jawaban antara a, b, c, ataupun d untuk menjawab pertanyaan nomor 1 s.d. 9. Atas kesediaan semua responden yang telah berpartisipasi dalam pengisian kuesioner ini kami ucapkan terima kasih.</h3>
     </div>
     <div class="box-body">
       <div class="row">
@@ -26,7 +27,7 @@
         @if (count($indikators)>0)
             <div class="col-md-12">
                 <div class="alert alert-info alert-block" id="keterangan">
-                    <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Silahkan isi kuisioner berikut, jika anda simpan kuisioner maka kelas akan otomatis diambil, jika anda ragu silahkan klik batal
+                    {{--  <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Silahkan isi kuisioner berikut, jika anda simpan kuisioner maka kelas akan otomatis diambil, jika anda ragu silahkan klik batal  --}}
                 </div>
             </div>
             <div class="col-md-12">
