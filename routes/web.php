@@ -28,10 +28,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::get('/', [HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
-// Route::group(['prefix'  => '/'],function(){
-//     Route::get('/',[HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
-//     Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
-// });
+Route::group(['prefix'  => '/'],function(){
+    Route::get('/',[HomeController::class, 'dashboard'])->name('dashboard');
+    Route::post('evaluasi/',[HomeController::class, 'post'])->name('evaluasi.post');
+});
 
 
 Route::get('/operator', function () {
@@ -65,10 +65,10 @@ Route::post('/pandalogin',[PandaController::class, 'pandaLogin'])->name('panda.l
 Route::get('/logout', [PandaController::class, 'authLogout'])->name('authLogout');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix'  => 'evaluasi/'],function(){
-    Route::get('/',[HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
-    Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
-});
+// Route::group(['prefix'  => 'evaluasi/'],function(){
+//     Route::get('/',[HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
+//     Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
+// });
 
 // Route::group(['prefix'  => 'operator/'],function(){
 //     Route::get('/login', function () {
