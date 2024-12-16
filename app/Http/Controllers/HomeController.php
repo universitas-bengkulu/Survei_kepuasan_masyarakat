@@ -17,10 +17,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('isMahasiswa');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('isMahasiswa');
+    // }
 
     /**
      * Show the application dashboard.
@@ -38,18 +38,18 @@ class HomeController extends Controller
     }
 
     public function post(Request $request){
-        DB::beginTransaction();
-        try {
+        // DB::beginTransaction();
+        // try {
             $jumlah = $request->jumlah;
             $data = Indikator::where('ditampilkan',1)->get();
             $kuisioner = array();
             foreach ($data as $data) {
                 $kuisioner [] =  array(
-                    'username'	        =>  $request->username,
-                    'nama_lengkap'      =>  $request->nama_lengkap,
-                    'akses'             =>  $request->akses,
-                    'prodi'             =>  $request->prodi,
-                    'fakultas'          =>  $request->fakultas,
+                    'jenis_kelamin'	    =>  $request->jenis_kelamin,
+
+                    'usia'              =>  $request->usia,
+                    'pendidikan'        =>  $request->pendidikan,
+                    'pekerjaan'         =>  $request->pekerjaan,
                     'indikator_id'	    =>  $data->id,
                     'nama_indikator'	=>  $data->nama_indikator,
                     'skor'              =>  $_POST['nilai'.$data->id],
@@ -62,38 +62,37 @@ class HomeController extends Controller
             $total =  array_sum(array_column($kuisioner, 'skor'));
             $rata = $total/$jumlah;
             EvaluasiRekap::create([
-                'username'              => $request->username,
-                'nama_lengkap'          => $request->nama_lengkap,
-                'akses'                 => $request->akses,
-                'prodi'                 => $request->prodi,
-                'fakultas'              => $request->fakultas,
-                'total_skor'            => $total,
-                'rata_rata'             => $rata,
+                'jenis_kelamin'              => $request->jenis_kelamin,
+                'usia'                       => $request->usia,
+                'pendidikan'                 => $request->pendidikan,
+                'pekerjaan'                  => $request->pekerjaan,
+                'total_skor'                 => $total,
+                'rata_rata'                  => $rata,
             ]);
             if (!$request->saran == null && !$request->saran == "") {
                 Saran::create([
-                    'username'	        =>  $request->username,
-                    'nama_lengkap'      =>  $request->nama_lengkap,
-                    'akses'             =>  $request->akses,
-                    'prodi'             =>  $request->prodi,
-                    'fakultas'          =>  $request->fakultas,
-                    'saran'             =>  $request->saran,
+                    'jenis_kelamin'	        =>  $request->jenis_kelamin,
+                    'usia'                  =>  $request->usia,
+                    'pendidikan'            =>  $request->pendidikan,
+                    'pekerjaan'             =>  $request->pekerjaan,
+                    'saran'                 =>  $request->saran,
                 ]);
             }
-            DB::commit();
+            // DB::commit();
             $notification = array(
                 'message' => 'Kuisioner berhasil disimpan!',
                 'alert-type' => 'success'
             );
 
             return redirect()->back()->with($notification);
-        } catch (\Exception $e) {
-            DB::rollback();
-            $notification = array(
-                'message' => 'Kuisioner gagal disimpan!',
-                'alert-type' => 'error'
-            );
-            return redirect()->back()->with($notification);
-        }
+        // }
+        //  catch (\Exception $e) {
+        //     DB::rollback();
+        //     $notification = array(
+        //         'message' => 'Kuisioner gagal disimpan!',
+        //         'alert-type' => 'error'
+        //     );
+        //     return redirect()->back()->with($notification);
+        // }
     }
 }

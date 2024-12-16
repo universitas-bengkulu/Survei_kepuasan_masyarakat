@@ -22,9 +22,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+// Route::get('/', function () {
+//     // return redirect()->route('login');
+//     return redirect()->route('evaluasi.dashboard');
+// });
+
+// Route::get('/', [HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
+// Route::group(['prefix'  => '/'],function(){
+//     Route::get('/',[HomeController::class, 'dashboard'])->name('evaluasi.dashboard');
+//     Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
+// });
+
+
 Route::get('/operator', function () {
     return redirect()->route('operator.login');
 });
@@ -61,14 +70,14 @@ Route::group(['prefix'  => 'evaluasi/'],function(){
     Route::post('/',[HomeController::class, 'post'])->name('evaluasi.post');
 });
 
-Route::group(['prefix'  => 'tenaga_kependidikan/'],function(){
-    Route::get('/login', function () {
-        return view('auth/login_tendik');
-    })->name('tendik.login');
+// Route::group(['prefix'  => 'operator/'],function(){
+//     Route::get('/login', function () {
+//         return view('auth/login_tendik');
+//     })->name('tendik.login');
 
-    Route::get('/dashboard',[TendikController::class, 'dashboard'])->name('tendik.dashboard');
-    Route::post('/',[TendikController::class, 'post'])->name('tendik.post');
-});
+//     Route::get('/dashboard',[TendikController::class, 'dashboard'])->name('tendik.dashboard');
+//     Route::post('/',[TendikController::class, 'post'])->name('tendik.post');
+// });
 
 
 Route::group(['prefix'  => 'perencanaan/'],function(){

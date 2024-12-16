@@ -15,11 +15,10 @@ class CreateEvaluasisTable extends Migration
     {
         Schema::create('evaluasis', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('nama_lengkap');
-            $table->string('akses');
-            $table->string('prodi');
-            $table->string('fakultas');
+            $table->string('jenis_kelamin');
+            $table->string('usia');
+            $table->string('pendidikan');
+            $table->string('pekerjaan');
             $table->unsignedBigInteger('indikator_id');
             $table->string('nama_indikator');
             $table->integer('skor');

@@ -9,6 +9,9 @@ class EvaluasiRekap extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'username','nama_lengkap','akses','prodi','fakultas','total_skor','rata_rata'
+        'jenis_kelamin',
+        'usia',
+        'pendidikan',
+        'pekerjaan','total_skor','rata_rata'
     ];
 }

@@ -9,11 +9,10 @@ class Saran extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'username',
-        'nama_lengkap',
-        'akses',
-        'prodi',
-        'fakultas',
+        'jenis_kelamin',
+        'usia',
+        'pendidikan',
+        'pekerjaan',
         'saran',
     ];
 }

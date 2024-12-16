@@ -15,11 +15,10 @@ class CreateEvaluasiRekapsTable extends Migration
     {
         Schema::create('evaluasi_rekaps', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('nama_lengkap');
-            $table->string('akses');
-            $table->string('prodi');
-            $table->string('fakultas');
+            $table->string('jenis_kelamin');
+            $table->string('usia');
+            $table->string('pendidikan');
+            $table->string('pekerjaan');
             $table->integer('total_skor');
             $table->double('rata_rata');
             $table->timestamps();

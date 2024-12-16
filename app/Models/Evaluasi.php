@@ -10,11 +10,10 @@ class Evaluasi extends Model
     use HasFactory;
     public $timestamps = true;
     protected $fillable = [
-        'username',
-        'nama_lengkap',
-        'akses',
-        'prodi',
-        'fakultas',
+        'jenis_kelamin',
+        'usia',
+        'pendidikan',
+        'pekerjaan',
         'indikator_id',
         'nama_indikator',
         'skor',

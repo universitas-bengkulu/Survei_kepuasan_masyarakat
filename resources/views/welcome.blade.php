@@ -5,7 +5,7 @@
 @section('content')
 <div class="box box-info">
     <div class="box-header with-border">
-      <h3 class="box-title">Form Evaluasi Lembaga Pengembangan Teknologi Informasi dan Komunikasi (LPTIK)</h3>
+      <h3 class="box-title">Form Evaluasi Universitas Bengkulu</h3>
     </div>
     <div class="box-body">
       <div class="row">
@@ -40,6 +40,59 @@
                     <input type="hidden" name="fakultas" value="{{ Session::get('fakultas') }}">
                     <div class="row">
                         <div class="col-md-12">
+                            <tr style="margin-top:20px !important">
+                                <tr>
+                                    <td colspan="2">
+                                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" placeholder="">
+                                            <option disabled selected>-- pilih jenis kelamin --</option>
+                                            <option value="laki-laki">Laki-laki</option>
+                                            <option value="perempuan">Perempuan</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr style="margin-top:20px !important">
+                                    <tr>
+                                        <td colspan="2">
+                                            <label for="usia">Usia</label>
+                                            <input type="text" name="usia" id="usia" class="form-control" placeholder="Masukan Usia Anda Disini">
+                                      </tr>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label for="pendidikan">Pendidikan</label>
+                                        <select name="pendidikan" id="pendidikan" class="form-control" placeholder="">
+                                            <option disabled selected>-- pilih pendidikan--</option>
+                                            <option value="SD">SD</option>
+                                            <option value="SMP">SMP</option>
+                                            <option value="SMA">SMA</option>
+                                            <option value="D-1/D-2/D-3">D-1/D-2/D-3</option>
+                                            <option value="S-1">S-1</option>
+                                            <option value="S-2">S-2</option>
+                                            <option value="S-3">S-3</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label for="pekerjaan">pekerjaan</label>
+                                        <select name="pekerjaan" id="pekerjaan" class="form-control" onchange="toggleInput()">
+                                            <option disabled selected>-- pilih pekerjaan--</option>
+                                            <option value="PNS">PNS</option>
+                                            <option value="Non PNS">Non PNS</option>
+                                            <option value="Karyawan Swasta">Karyawan Swasta</option>
+                                            <option value="Mahasiswa">Mahasiswa</option>
+                                            <option value="Alumni">Alumni</option>
+                                            <option value="Belum Bekerja">Belum Bekerja</option>
+                                            <option value="lainnya">lainnya</option>
+                                        </select>
+                                        <!-- Hidden input field that will be shown when "Lainnya" is selected -->
+                                        <input type="text" name="lainnya_input" id="lainnya_input" class="form-control" placeholder="Masukkan nama pekerjaan lainnya" style="display:none;">
+                                    </td>
+                                </tr>
+
+
+
                             <table class="table table-striped table-bordered table-hover " id="table" style="width:100%;">
                                 <thead>
                                     <tr>
@@ -47,6 +100,7 @@
                                         <th>Soal Evaluasi</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     @php
                                         $no=1;
@@ -82,7 +136,7 @@
                                         <tr style="margin-top:20px !important">
                                             <tr>
                                                 <td colspan="2">
-                                                    <label for="pesan-teks">Masukan Pesan dan Saran Anda Untuk LPTIK <a style="color: red;">Opsional</a></label>
+                                                    <label for="pesan-teks">Masukan Pesan dan Saran Anda Untuk Universitas Bengkulu <a style="color: red;">Opsional</a></label>
 
                                                      <textarea name="saran" id="saran" cols="30" rows="3" class="form-control" placeholder="Masukan Pesan Anda Disini"></textarea></td>
                                               </tr>
@@ -118,3 +172,4 @@
         }
     </script>
 @endpush
+
