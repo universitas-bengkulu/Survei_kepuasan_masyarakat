@@ -14,13 +14,13 @@
 <li class="header" style="font-weight:bold;">LAPORAN</li>
 <li class="{{ set_active('operator.laporan.per_prodi') }}">
     <a href="{{ route('operator.laporan.per_prodi') }}">
-        <i class="fa fa-bar-chart"></i> <span>Laporan Per Prodi</span>
+        <i class="fa fa-bar-chart"></i> <span>Laporan Per Pekerjaan</span>
     </a>
 </li>
 
 <li class="{{ set_active('operator.laporan.per_fakultas') }}">
     <a href="{{ route('operator.laporan.per_fakultas') }}">
-        <i class="fa fa-pie-chart"></i> <span>Laporan Per Fakultas</span>
+        <i class="fa fa-pie-chart"></i> <span>Laporan Per Pendidikan</span>
     </a>
 </li>
 

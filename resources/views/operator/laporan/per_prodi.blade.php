@@ -59,14 +59,14 @@
         <div class="box box-primary">
 
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Prodi (Grafik Batang)</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per pekerjaan (Grafik Batang)</h3>
             </div>
             <div class="box-body">
                 @section('charts')
                     var data = [
                         @foreach ($jumlah as $data)
                             {
-                                "country": "{{ $data['prodi'] }}",
+                                "country": "{{ $data['pekerjaan'] }}",
                                 "value": {{ $data['jumlah'] }}
                             },
                         @endforeach
@@ -82,14 +82,14 @@
         <div class="box box-primary">
 
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Prodi (Grafik Lingkaran)</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per pekerjaan (Grafik Lingkaran)</h3>
             </div>
             <div class="box-body">
                 @section('charts2')
                     chart.data = [
                         @foreach ($jumlah as $data)
                             {
-                                "country": "{{ $data['prodi'] }}",
+                                "country": "{{ $data['pekerjaan'] }}",
                                 "litres": {{ $data['jumlah'] }}
                             },
                         @endforeach
@@ -104,15 +104,14 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Detail Laporan Per Prodi</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Detail Laporan Per pekerjaan</h3>
             </div>
             <div class="box-body">
                 <table class="table table-hover table-striped" id="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Fakultas</th>
-                            <th>Prodi</th>
+                            <th>pekerjaan</th>
                             <th>Jumlah Mengevaluasi</th>
                             <th>Rata-Rata</th>
                         </tr>
@@ -123,12 +122,11 @@
                         @endphp
                         @forelse ($jumlah as $jumlah)
                             @php
-                                $pembagi = \App\Models\EvaluasiRekap::select(DB::raw('count(prodi) as total'))->where('prodi',$jumlah->prodi)->first();
+                                $pembagi = \App\Models\EvaluasiRekap::select(DB::raw('count(pekerjaan) as total'))->where('pekerjaan',$jumlah->pekerjaan)->first();
                             @endphp
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $jumlah->fakultas }}</td>
-                                <td>{{ $jumlah->prodi }}</td>
+                                <td>{{ $jumlah->pekerjaan }}</td>
                                 <td>{{ $jumlah->jumlah }}</td>
                                 <td>{{ $jumlah->skor/$pembagi->total }}</td>
                             </tr>

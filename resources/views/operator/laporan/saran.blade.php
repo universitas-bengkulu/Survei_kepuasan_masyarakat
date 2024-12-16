@@ -65,10 +65,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Fakultas</th>
-                            <th>Program Studi</th>
-                            <th>Nama Lengkap</th>
-                            <th>Akses</th>
+                            <th>pendidikan</th>
+                            <th>pekerjaan</th>
+                            <th>usia</th>
                             <th>Pesan / Saran</th>
                             <th>Waktu</th>
                         </tr>
@@ -80,10 +79,9 @@
                         @forelse ($sarans as $saran)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $saran->fakultas }}</td>
-                                <td>{{ $saran->prodi }}</td>
-                                <td>{{ $saran->nama_lengkap }}</td>
-                                <td>{{ $saran->akses }}</td>
+                                <td>{{ $saran->pendidikan }}</td>
+                                <td>{{ $saran->pekerjaan }}</td>
+                                <td>{{ $saran->usia }}</td>
                                 <td>{{ $saran->saran }}</td>
                                 <td>{{ Carbon\Carbon::parse($saran->created_at)->isoFormat('D MMMM Y') }}</td>
                             </tr>

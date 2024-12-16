@@ -59,14 +59,14 @@
         <div class="box box-primary">
 
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Fakultas (Grafik Batang)</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per pendidikan (Grafik Batang)</h3>
             </div>
             <div class="box-body">
                 @section('charts')
                     var data = [
                         @foreach ($jumlah as $data)
                             {
-                                "country": "{{ $data['fakultas'] }}",
+                                "country": "{{ $data['pendidikan'] }}",
                                 "value": {{ $data['jumlah'] }}
                             },
                         @endforeach
@@ -82,14 +82,14 @@
         <div class="box box-primary">
 
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per Fakultas (Grafik Lingkaran)</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Laporan Evaluasi Per pendidikan (Grafik Lingkaran)</h3>
             </div>
             <div class="box-body">
                 @section('charts2')
                     chart.data = [
                         @foreach ($jumlah as $data)
                             {
-                                "country": "{{ $data['fakultas'] }}",
+                                "country": "{{ $data['pendidikan'] }}",
                                 "litres": {{ $data['jumlah'] }}
                             },
                         @endforeach
@@ -104,14 +104,14 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Detail Laporan Per Fakultas</h3>
+            <h3 class="box-title"><i class="fa fa-info-circle"></i>&nbsp;Detail Laporan Per pendidikan</h3>
             </div>
             <div class="box-body">
                 <table class="table table-hover table-striped" id="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Fakultas</th>
+                            <th>pendidikan</th>
                             <th>Jumlah Responden</th>
                             <th>Rata-Rata</th>
                         </tr>
@@ -122,11 +122,11 @@
                         @endphp
                         @forelse ($jumlah as $jumlah)
                             @php
-                                $pembagi = \App\Models\EvaluasiRekap::select(DB::raw('count(fakultas) as total'))->where('fakultas',$jumlah->fakultas)->first();
+                                $pembagi = \App\Models\EvaluasiRekap::select(DB::raw('count(pendidikan) as total'))->where('pendidikan',$jumlah->pendidikan)->first();
                             @endphp
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $jumlah->fakultas }}</td>
+                                <td>{{ $jumlah->pendidikan }}</td>
                                 <td>{{ $jumlah->jumlah }}</td>
                                 <td>{{ $jumlah->skor/$pembagi->total }}</td>
                             </tr>
